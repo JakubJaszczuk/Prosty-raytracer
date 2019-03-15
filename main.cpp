@@ -68,7 +68,7 @@ int main(int argc, char const *argv[])
 	scene.push_back(bottom);
 
 	// Rendering
-	LightRay::directions.resize(Render::raysCount * 1000);
+	LightRay::directions.resize(LightRay::raysCount * 1000);
 	//#pragma opm parallel for
 	for(std::size_t i = 0; i < LightRay::directions.size(); ++i)
 	{
