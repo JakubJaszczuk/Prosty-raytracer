@@ -7,7 +7,8 @@
 // Struktura wyspecjalizowanego promienia
 struct LightRay : Ray
 {
-	static constexpr std::uint32_t raysCount {10};
+	static std::uint32_t raysCount;
+	static std::uint32_t rayDepth;
 	static std::vector<glm::vec3> directions;
 
 	const std::uint8_t ttl {4};

@@ -14,6 +14,17 @@ int main(int argc, char const *argv[])
 	{
 		res = std::atoi(argv[1]);
 	}
+	else if(argc > 2)
+	{
+		res = std::atoi(argv[1]);
+		LightRay::raysCount = std::atoi(argv[2]);
+	}
+	else if(argc > 3)
+	{
+		res = std::atoi(argv[1]);
+		LightRay::raysCount = std::atoi(argv[2]);
+		LightRay::rayDepth = std::atoi(argv[3]);
+	}
 
 	// Ustawienie sceny
 	Object cube1;

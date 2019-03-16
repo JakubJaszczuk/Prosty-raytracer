@@ -14,7 +14,7 @@ LightRay Render::createPrimaryRay(const Camera& camera, std::uint32_t resolution
 {
 	const glm::vec2 coord = pixelCoord(camera.fov, resolution, i, j);
 	const glm::vec3 dir = glm::normalize(glm::vec3(coord.x, 1.f, coord.y));
-	return LightRay(camera.position, dir, 3);
+	return LightRay(camera.position, dir, LightRay::rayDepth);
 }
 
 void Render::render(const std::vector<Object>& sceneData, const Camera& camera, std::uint32_t resolution, std::vector<glm::u8vec3>& buffer, std::uint32_t stride, std::uint32_t ord) const noexcept
