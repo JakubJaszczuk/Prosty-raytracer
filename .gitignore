@@ -1,8 +1,8 @@
 *.blend*
 *.png
 img*
-!img_cr
-!img_mc
+!img_cr.png
+!img_mc.png
 *.d
 *.o
 yapt
