@@ -1,6 +1,6 @@
 #include "light_ray.h"
 
-std::uint32_t LightRay::raysCount {10};
+std::uint32_t LightRay::raysCount {40};
 std::uint32_t LightRay::rayDepth {2};
 std::vector<glm::vec3> LightRay::directions;
 

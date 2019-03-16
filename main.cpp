@@ -9,7 +9,7 @@ int main(int argc, char const *argv[])
 {
 	std::cout.sync_with_stdio(false);
 	// Można ustawić rozdzielczość z linii poleceń
-	std::uint32_t res {256};
+	std::uint32_t res {512};
 	if(argc > 1)
 	{
 		res = std::atoi(argv[1]);
