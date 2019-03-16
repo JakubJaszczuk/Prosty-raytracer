@@ -1,8 +1,8 @@
 CXX = g++
-CXXFLAGS = -Wall -Wextra -O3 -g -std=c++17 -fopenmp
+CXXFLAGS = -Wall -Wextra -O3 -std=c++17 -fopenmp
 LDFLAGS = -fopenmp
 TARGET = yapt
-ARGS = 512 10 0
+ARGS = 512 20 3
 SRCS = $(wildcard *.cpp)
 OBJS = $(SRCS:.cpp=.o)
 DBJS = $(SRCS:.cpp=.d)

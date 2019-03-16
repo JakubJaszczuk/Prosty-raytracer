@@ -23,7 +23,10 @@ void Render::render(const std::vector<Object>& sceneData, const Camera& camera, 
 	//#pragma omp parallel for
 	for(std::uint32_t j = ord; j < resolution; j += stride)
 	{
-		std::cout << "Przetwarzam linię: " << j << std::endl; 
+		if(!(j % 10))
+		{
+			std::cout << "Przetwarzam linię: " << j << std::endl; 
+		}
 		for(std::uint32_t i = 0; i < resolution; ++i)
 		{
 			auto lightRay = createPrimaryRay(camera, resolution, i, resolution - j);
@@ -52,6 +55,7 @@ void Render::operator()(const std::vector<Object>& sceneData, const Camera& came
 	}
 		
 	// Zapisanie do pliku PPM
+	std::cout << "Zapisuję do pliku.\n";
 	std::ofstream ofs("img");
 	ofs << "P3\n" << resolution << " " << resolution << "\n255\n";
 	for(const auto& color : buffer)
