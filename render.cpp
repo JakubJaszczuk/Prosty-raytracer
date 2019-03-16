@@ -38,8 +38,8 @@ void Render::operator()(const std::vector<Object>& sceneData, const Camera& came
 	// Bufor pikseli
 	std::vector<glm::u8vec3> buffer(resolution * resolution);
 	
-	// TEST -> użycie OpenMP jest dużo prostsze
-	const unsigned int concurent = 1;//std::thread::hardware_concurrency();
+	// TEST -> użycie OpenMP jest dużo prostsze, niż samemu robienie wątków
+	const unsigned int concurent = std::thread::hardware_concurrency();
 	std::vector<std::thread> threads;
 	for(std::uint32_t i = 0; i < concurent; ++i)
 	{
@@ -51,7 +51,7 @@ void Render::operator()(const std::vector<Object>& sceneData, const Camera& came
 		threads[i].join();
 	}
 		
-	// Zapisanie do pliku
+	// Zapisanie do pliku PPM
 	std::ofstream ofs("img");
 	ofs << "P3\n" << resolution << " " << resolution << "\n255\n";
 	for(const auto& color : buffer)

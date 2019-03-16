@@ -28,4 +28,3 @@ struct Object
 };
 
 #endif // OBJECT_H_
-

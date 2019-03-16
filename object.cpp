@@ -75,4 +75,3 @@ void Object::loadFromFile(const char* path)
 	}
 	createAABB();
 }
-

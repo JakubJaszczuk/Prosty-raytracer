@@ -34,4 +34,3 @@ struct Material
 };
 
 #endif // MATERIAL_H_
-

@@ -30,12 +30,15 @@ glm::vec3 LightRay::trace(const std::vector<Object>& sceneData)
 		const glm::uvec3& tri = obj.triangles[hitData.triangleIndex];
 		glm::vec3 normal = glm::normalize(barycentricConversion(hitData.uv, obj.normals[tri[0]], obj.normals[tri[1]], obj.normals[tri[2]]));
 		
-		// Punkt trafienie należy "wyciągnąć" ponad powierzchnię obiektu -> dodanie t * normal
+		// Punkt trafienie należy "wyciągnąć" ponad powierzchnię obiektu -> dodanie normal * epsilon
 		glm::vec3 orig = barycentricConversion(hitData.uv, obj.vertices[tri[0]], obj.vertices[tri[1]], obj.vertices[tri[2]]) + normal * 0.00001f;
 		std::uint32_t counter {0};
 		glm::vec3 color = glm::vec3(0.f, 0.f, 0.f);
 		for(std::size_t i = 0; i < LightRay::directions.size() && counter < LightRay::raysCount; ++i)
 		{
+			//////////////////
+			/// Promienie można generować losowo dynamicznie lub używać wcześniej wygenerowanych promieni (to jest teraz ustawione)
+			//////////////////
 			//glm::vec3 direction = Ray::randomDirection();
 			glm::vec3 direction = LightRay::directions[i];
 			if(glm::dot(normal, direction) > 0)

@@ -3,8 +3,6 @@
 
 #include <glm/glm.hpp>
 #include "ray.h"
-//#include "render.h"
-
 
 // Struktura wyspecjalizowanego promienia
 struct LightRay : Ray
@@ -26,4 +24,3 @@ struct LightRay : Ray
 inline glm::vec3 barycentricConversion(const glm::vec2& uv, const glm::vec3& p0, const glm::vec3& p1, const glm::vec3& p2);
 
 #endif // LIGHT_RAY_H_
-

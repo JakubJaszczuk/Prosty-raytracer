@@ -21,4 +21,3 @@ struct Ray
 };
 
 #endif // RAY_H_
-

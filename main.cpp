@@ -8,6 +8,7 @@
 int main(int argc, char const *argv[])
 {
 	std::cout.sync_with_stdio(false);
+	// Można ustawić rozdzielczość z linii poleceń
 	std::uint32_t res {256};
 	if(argc > 1)
 	{
@@ -68,6 +69,8 @@ int main(int argc, char const *argv[])
 	scene.push_back(bottom);
 
 	// Rendering
+
+	// Wygenerowanie losowych kierunków (można ich użyć zamiast dynamicznie generować kierunki promieni odbitych)
 	LightRay::directions.resize(LightRay::raysCount * 1000);
 	//#pragma opm parallel for
 	for(std::size_t i = 0; i < LightRay::directions.size(); ++i)
@@ -75,6 +78,7 @@ int main(int argc, char const *argv[])
 		LightRay::directions[i] = Ray::randomDirection();
 	}
 
+	//Właściwy rendering sceny
 	Render render;
 	Camera camera(glm::vec3(0.f, -3.f, 0.f), 55.f);
 	render(scene, camera, res);

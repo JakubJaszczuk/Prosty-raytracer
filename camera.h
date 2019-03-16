@@ -16,5 +16,4 @@ struct Camera
 	~Camera() = default;
 };
 
-
 #endif // CAMERA_H_
